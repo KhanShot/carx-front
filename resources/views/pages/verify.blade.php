@@ -136,7 +136,7 @@
             document.getElementById('verify-form').submit()
         }
 
-        let timeleft = 5;
+        let timeleft = 59;
         let seconds = 1;
         let downloadTimer = setInterval(function(){
             if(timeleft === seconds){
