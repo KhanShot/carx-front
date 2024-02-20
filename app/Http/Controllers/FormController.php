@@ -64,7 +64,7 @@ class FormController extends Controller
         }
 
         $verify['phone'] = $request->get('phone');
-        return redirect()->route('form.verify', compact('verify'))->with('success', 'Подтвердите телефон номер!');
+        return redirect()->route('form.verify', compact('verify'))->with('success1', 'Подтвердите телефон номер!');
     }
     private function sendSms($phone, $user)
     {
