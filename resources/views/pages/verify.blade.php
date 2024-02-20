@@ -18,7 +18,7 @@
         <div class="card pd-24px---18px text-center">
             <h3 class="text-200 bold">Введите код из СМС</h3>
             <p>На номер <span class="text-span-3">{{request()->get('verify')['phone']}}</span> отправлен СМС-код для подтверждения контактных данных в Вашей анкете</p>
-            <div class="change_number">Изменить номер телефона?</div>
+            <div class="change_number"><button style="background: transparent" onclick="openChangeNumber()">Изменить номер телефона?</button></div>
             <div class="form-block w-form">
                 <form id="verify-form" action="{{route('form.phone.verify')}}" method="post" class="form">
                     @csrf
@@ -47,6 +47,32 @@
                         <div>Подтвердить</div><img src="{{ asset('images/primary-button-icon-right-dashflow-webflow-template.svg')}}" loading="eager" alt="" class="link-icon arrow-right">
                     </div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+        <section class="end_offer" id="changeNumber" >
+        <div class="card pd-24px---18px text-center thank-you">
+            <h3 class="text-200 bold">Изменить номер телефона</h3>
+            <form method="post" action="{{route('form.changeNumber')}}" id="change-form">
+                @csrf
+                <input type="hidden" name="old_number" value="{{request()->get('verify')['phone']}}">
+                <input type="text" class="input w-input" name="phone" id="phone-mask" value="77" required>
+            </form>
+
+            <div class="buttons-row center gap-column-12px" style="margin-top: 15px">
+                <div>
+                    <a style="display: flex" data-w-id="5228fae3-1046-92bf-afc3-a85185c5a451" href="#" onclick="closeChangeNumber()" class="btn-secondary w-inline-block" >
+                        <div class="flex-horizontal gap-column-4px">
+                            <div>Отмена</div>
+                        </div>
+                    </a>
+                </div>
+                <button href="#" class="btn-primary w-inline-block" onclick="return document.getElementById('change-form').submit()">
+                    <div class="flex-horizontal gap-column-4px">
+                        <div>Изменить</div><img src="{{ asset('images/primary-button-icon-right-dashflow-webflow-template.svg')}}" loading="eager" alt="" class="link-icon arrow-right">
+                    </div>
+                </button>
             </div>
         </div>
     </section>
@@ -110,12 +136,13 @@
             document.getElementById('verify-form').submit()
         }
 
-        let timeleft = 59;
+        let timeleft = 5;
         let seconds = 1;
         let downloadTimer = setInterval(function(){
             if(timeleft === seconds){
                 clearInterval(downloadTimer);
-                document.getElementById("link").innerHTML = 'Отправить заново';
+                document.getElementById("link").innerHTML = '<form action="/form/submit/resend" method="post" style="text-decoration: none" class="text-span-4">@csrf
+                    <input type="hidden" name="phone" value="{{request()->get('verify')['phone']}}"> <button style="background: transparent">Отправить</button></form>';
             }
 
             document.getElementById("seconds").innerHTML = twoDigits(timeleft - seconds);
@@ -124,6 +151,14 @@
 
         function twoDigits(n){
             return (n < 10 ? "0" : "") + n;
+        }
+
+        function closeChangeNumber() {
+            $('#changeNumber').css('display', 'none');
+        }
+        function openChangeNumber() {
+            $('#changeNumber').css('display', 'flex');
+
         }
     </script>
 @endsection

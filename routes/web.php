@@ -22,5 +22,7 @@ Route::get('/form', function () {
 })->name('form');
 
 Route::post('/form/submit', [\App\Http\Controllers\FormController::class, 'store'])->name('form.submit');
+Route::post('/form/submit/resend', [\App\Http\Controllers\FormController::class, 'resend'])->name('form.resend');
+Route::post('/form/change-number', [\App\Http\Controllers\FormController::class, 'changeNumber'])->name('form.changeNumber');
 Route::get('/form/verify', [\App\Http\Controllers\FormController::class, 'verify'])->name('form.verify');
 Route::post('/form/phone/verify', [\App\Http\Controllers\FormController::class, 'phoneVerify'])->name('form.phone.verify');

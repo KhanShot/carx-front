@@ -15,6 +15,9 @@
     .dropzone{
         border: 1px solid var(--neutral--400) !important;
     }
+    .dz-message{
+        display: none;
+    }
 </style>
 @section('content')
     <section class="main-section">
@@ -149,9 +152,14 @@
                     <h2 class="text-500 bold second_header">Фотографии автомобиля</h2>
                     <p class="paragraph offer">Предоставьте фотографии с 4-х сторон автомобиля + фото салона + фото багажника. <br></p>
                     <div>
-                        <div class="photo_download dropzone" style="display: flex; flex-direction: row; flex-wrap: wrap;
-                        overflow: scroll;" id="myDropzone"><img src="images/icon-arrow.svg" loading="lazy" alt="" class="image">
-{{--                            <p class="paragraph-6">Нажмите для загрузки файлов <br>или перетащите файл в эту область</p>--}}
+                        <div class="photo_download dropzone"
+                             style="display: flex;
+                                    flex-direction: column;
+                                    flex-wrap: wrap;
+                                    overflow: scroll;"
+                             id="myDropzone">
+                            <img src="{{ asset('images/icon-arrow.svg')}}" loading="lazy" alt="" id="drop-image" class="image">
+                            <p class="paragraph-6" id="drop-paragraph">Нажмите для загрузки файлов <br>или перетащите файл в эту область</p>
                         </div>
                     </div>
                     <input type="file" style="display: none" multiple name="images[]" id="images-dropped">
@@ -163,7 +171,7 @@
                                 <div><input class="input w-input" name="name" type="text" value="{{old('name')}}"></div>
                             </div>
                             <div><label for="Name-3" class="field-label">Номер телефона</label>
-                                <div><input class="input w-input" name="phone" id="phone-mask" type="tel" value="{{old('phone')}}"></div>
+                                <div><input class="input w-input" name="phone" id="phone-mask" type="tel" value="{{old('phone', '77')}}"></div>
                             </div>
                         </div>
                     </div>
@@ -201,12 +209,7 @@
 
 @section('js')
 <script>
-    IMask(
-        document.getElementById('phone-mask'),
-        {
-            mask: '+{7}(000)000-00-00'
-        }
-    )
+
     let formData = new FormData(document.getElementById('form'));
     let files = [];
     let dropzone = Dropzone.options.myDropzone = {
@@ -216,8 +219,9 @@
         clickable: true,
         maxFilesize: 5, //in mb
         addRemoveLinks: true,
-        dictDefaultMessage: ' &nbsp  &nbsp Нажмите для загрузки файлов или перетащите файл в эту область',
+        dictDefaultMessage: '',
         acceptedFiles: '.png,.jpg',
+        dictRemoveFile: "Удалить файл",
         init: function() {
             this.on("sending", function(file, xhr, formData) {
                 console.log("sending file");
@@ -228,12 +232,21 @@
             this.on("addedfile", function(file){
 
                 files.push(file)
+                $('#drop-image').hide();
+                $('#drop-paragraph').hide();
+                $("#myDropzone").css('flex-direction', 'row')
                 console.log('file added');
 
             });
             this.on("removedfile", function(file){
                 files.pop(file)
-                console.log('file added');
+                if(files.length == 0){
+                    $('#drop-image').show();
+                    $("#myDropzone").css('flex-direction', 'column')
+                    $('#drop-paragraph').show();
+                }
+
+                console.log('file added: ' + files.length);
 
             });
         }

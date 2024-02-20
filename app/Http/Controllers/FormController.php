@@ -15,7 +15,6 @@ class FormController extends Controller
 {
     public function store(FormStoreRequest $request)
     {
-        $mobizon = new MobizonService();
         $phone = $this->getNumber($request->get('phone'));
 
         $user_data = [
@@ -50,7 +49,7 @@ class FormController extends Controller
 
         $form = Form::query()->create($data);
 
-
+        $this->sendSms($phone, $user);
         if ($request->hasFile("images")){
             $path = "/assets/forms";
             foreach ($request->file('images') as $image){
@@ -63,6 +62,13 @@ class FormController extends Controller
                 ]);
             }
         }
+
+        $verify['phone'] = $request->get('phone');
+        return redirect()->route('form.verify', compact('verify'))->with('success', 'Подтвердите телефон номер!');
+    }
+    private function sendSms($phone, $user)
+    {
+        $mobizon = new MobizonService();
         $code = rand(999, 9999);
         $mobizon->sendSMS($phone, $code);
         SmsCode::query()->create([
@@ -72,10 +78,7 @@ class FormController extends Controller
             'verified' => 0,
             'user_id' => $user->id,
         ]);
-        $verify['phone'] = $request->get('phone');
-        return redirect()->route('form.verify', compact('verify'))->with('success', 'Подтвердите телефон номер!');
     }
-
     private function getNumber($str){
         return preg_replace('/[^0-9]/', '',$str);
     }
@@ -86,7 +89,25 @@ class FormController extends Controller
             return redirect()->route('form');
         return view('pages.verify');
     }
+    public function resend(Request $request)
+    {
+        $user = User::query()->where('phone', $request->get('phone'))->first();
+        $this->sendSms($this->getNumber($request->get('phone')),$user);
+        return redirect()->back()->with('info', 'Код отправлено заново');
+    }
+    public function changeNumber(Request $request)
+    {
 
+        $user = User::query()->where('phone', $request->get('old_number'))->first();
+        if (strlen($request->get('phone')) != 16)
+            return redirect()->back()->with('error', 'Введите номер телефона корректно');
+
+        $user->phone = $request->get('phone');
+        $user->save();
+        $this->sendSms($this->getNumber($request->get('phone')),$user);
+        $verify['phone'] = $request->get('phone');
+        return redirect()->route('form.verify', compact('verify'))->with('info', 'Код отправлен на новый номер');
+    }
     public function phoneVerify(Request $request)
     {
         $user = User::query()->where('phone', $request->get('phone'))->first();
