@@ -31,15 +31,7 @@
                         <input type="hidden" name="full_code" id="full_code">
                     </div>
                 </form>
-
-                <div class="w-form-fail" style="display: flex; justify-content: center; border-radius: 5px;">
-                    <div class="">
-                        <div class="flex align-center gap-column-4px">
-                            <img src="{{ asset('images/error-message-icon-dashflow-webflow-template.svg')}}" loading="eager" alt="" class="max-w-12px">
-                            <div class="text-50 medium">Неправильный код подтверждение.</div>
-                        </div>
-                    </div>
-                </div>
+                @include('inc.alert')
             </div>
             <div class="text-block-2">Отправить повторно через: <span class="text-span-4" id="link">00: <span id="seconds">59</span></span></div>
             <div class="buttons-row center gap-column-12px">
@@ -59,10 +51,10 @@
         </div>
     </section>
 
-    <section class="end_offer" style="display: none">
+    <section class="end_offer" style="display: @if(Session::has('success')) flex @else none @endif">
         <div class="card pd-24px---18px text-center thank-you">
             <div class="mg-bottom-24px">
-                <div class="lottie-animation" data-w-id="edd9ce26-9006-8e8b-ae30-cd7313500cea" data-animation-type="lottie" data-src="documents/OYdCpYSwMy.json" data-loop="0" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="1.1666666666666667" data-duration="0"></div>
+                <div class="lottie-animation" data-w-id="edd9ce26-9006-8e8b-ae30-cd7313500cea" data-animation-type="lottie" data-src="{{ asset('documents/OYdCpYSwMy.json')}}" data-loop="0" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="1.1666666666666667" data-duration="0"></div>
             </div>
             <h3 class="text-200 bold">Ваша анкета отправлена!</h3>
             <p class="paragraph-7">В течении 30 минут Вам будут поступать предложения от наших партнеров. <br>Удачных сделок!</p>

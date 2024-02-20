@@ -12,6 +12,9 @@
     ::-webkit-scrollbar-thumb {
         background: #FF0000;
     }
+    .dropzone{
+        border: 1px solid var(--neutral--400) !important;
+    }
 </style>
 @section('content')
     <section class="main-section">

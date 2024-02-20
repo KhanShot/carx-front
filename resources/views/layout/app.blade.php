@@ -13,6 +13,7 @@
     <meta property="og:type" content="website">
     <meta content="summary_large_image" name="twitter:card">
     <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="{{ asset('css/normalize.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/webflow.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/snitkos-ultra-awesome-site.webflow.css')}}" rel="stylesheet" type="text/css">

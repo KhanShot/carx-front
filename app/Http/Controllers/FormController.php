@@ -96,8 +96,20 @@ class FormController extends Controller
 
         if (!$codes)
             return redirect()->back()->with('error', 'Неправильный код подтверждение.');
-        dd($user);
 
-        dd($request->all());
+        $form = Form::query()->where('user_id', $user->id)
+            ->where('verified', 0)
+            ->orderBy('created_at', 'DESC')->first();
+        $codes->verified = 1;
+        $codes->save();
+        $user->phone_verified_at = now();
+        $user->save();
+
+
+        $form->verified = 1;
+        $form->save();
+
+        //TODO sent event
+        return redirect()->back()->with('success', 'правильный код подтверждение.');
     }
 }
