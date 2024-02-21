@@ -7,7 +7,7 @@
                 <div id="w-node-b10376d2-a891-ed65-269c-511adf34ac37-6eadd569" class="inner-container _334px _100-mbl">
                     <h1 class="text-500 bold mg-bottom-24px">Выкуп автомобиля за <span class="text-span">один день</span></h1>
                     <p class="paragraph">Оставь одну заявку и получи предложения сразу от всех автосалонов города бесплатно. </p>
-                    <a data-w-id="b10376d2-a891-ed65-269c-511adf34ac3a" href="questionnaire.html" class="btn-primary w-inline-block">
+                    <a data-w-id="b10376d2-a891-ed65-269c-511adf34ac3a" href="form" class="btn-primary w-inline-block">
                         <div class="flex-horizontal gap-column-4px">
                             <div>Заполнить анкету</div><img src="images/primary-button-icon-right-dashflow-webflow-template.svg" loading="eager" alt="" class="link-icon arrow-right">
                         </div>
@@ -145,7 +145,7 @@
             <div data-w-id="66ed0c36-d350-888a-c453-b0a0f781cf6e" style="opacity:0" class="cta-card"><img src="images/emblem.svg" loading="lazy" alt="" class="img_emblem">
                 <h2 class="text-500 bold white mg-bottom-24px second_block">Гарантия лучшего предложения на рынке</h2>
                 <p class="paragraph white second_block">Заполните анкету и <span class="text-span-2">бесплатно</span> получите ценовые предложения диллеров со всего рынка. Если цена Вас не устроит, то в любой момент можете отказаться. </p>
-                <a data-w-id="d90ad4cc-d547-af70-3d02-eef98680c3c3" href="questionnaire.html" class="btn-primary white w-inline-block">
+                <a data-w-id="d90ad4cc-d547-af70-3d02-eef98680c3c3" href="form" class="btn-primary white w-inline-block">
                     <div class="flex-horizontal gap-column-4px">
                         <div>Заполнить анкету</div><img src="images/link-arrow-right-accent-1-dashflow-webflow-template.svg" loading="eager" alt="" class="link-icon arrow-right">
                     </div>
