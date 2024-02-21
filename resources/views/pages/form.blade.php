@@ -133,7 +133,9 @@
                                 </div>
                                 <div>
                                     <label for="field-20" class="field-label">VIN (не обязательно)</label>
-                                    <input class="input w-input" name="vin" type="text">
+                                    <input class="input w-input" minlength="17" maxlength="17" name="vin" type="text"
+                                           onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)"
+                                    >
                                 </div>
                                 <div>
                                     <label for="field-19" class="field-label">Комментарии (не обязательно)</label>
