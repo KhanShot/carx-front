@@ -149,7 +149,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="text-500 bold second_header">Фотографии автомобиля</h2>
+                    <h2 class="text-500 bold second_header">Фотографии автомобиля (не обязательно)</h2>
                     <p class="paragraph offer">Предоставьте фотографии с 4-х сторон автомобиля + фото салона + фото багажника. <br></p>
                     <div>
                         <div class="photo_download dropzone"
@@ -168,10 +168,10 @@
                     <div class="w-form">
                         <div class="w-layout-grid contact_grid">
                             <div><label for="Name-3" class="field-label">Имя</label>
-                                <div><input class="input w-input" name="name" type="text" value="{{old('name')}}"></div>
+                                <div><input class="input w-input" name="name" required type="text" value="{{old('name')}}"></div>
                             </div>
                             <div><label for="Name-3" class="field-label">Номер телефона</label>
-                                <div><input class="input w-input" name="phone" id="phone-mask" type="tel" value="{{old('phone', '77')}}"></div>
+                                <div><input class="input w-input" name="phone" required id="phone-mask" type="tel" value="{{old('phone', '77')}}"></div>
                             </div>
                         </div>
                     </div>

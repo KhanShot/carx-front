@@ -40,8 +40,8 @@ class FormStoreRequest extends FormRequest
             'crashed' => 'required|string',
             'right_hand' => 'required|string',
             'vin' => 'string',
-            'comment' => 'required|string',
-            'images' => 'required',
+            'comment' => 'string',
+//            'images' => 'required',
         ];
     }
 }
