@@ -7,8 +7,8 @@
                         <div class="text-100 medium color-neutral-800">Гарантия лучшего предложения</div>
                     </a>
                     <div class="footer-links-container">
-                        <a href="offer.html" class="text-decoration-none">Оферта</a>
-                        <a href="privacy-policy.html" class="text-decoration-none">Политика конфиденциальности</a>
+                        <a href="offer" class="text-decoration-none">Оферта</a>
+                        <a href="privacy-policy" class="text-decoration-none">Политика конфиденциальности</a>
                         <a href="http://my.xcar.kz" target="_blank" class="text-decoration-none">Личный кабинет</a>
                     </div>
                 </div>

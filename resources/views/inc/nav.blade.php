@@ -15,16 +15,16 @@
             </div>
             <ul role="list" class="header-nav-menu-list w-list-unstyled">
                 <li class="header-nav-list-item">
-                    <a href="#how-work" class="header-nav-link w-nav-link">Как это работает?</a>
+                    <a href="/#how-work" class="header-nav-link w-nav-link">Как это работает?</a>
                 </li>
                 <li class="header-nav-list-item">
-                    <a href="#What-s-buy" class="header-nav-link w-nav-link">Что выкупаем?</a>
+                    <a href="/#What-s-buy" class="header-nav-link w-nav-link">Что выкупаем?</a>
                 </li>
                 <li class="header-nav-list-item">
-                    <a href="#reviews" class="header-nav-link w-nav-link">Отзывы</a>
+                    <a href="/#reviews" class="header-nav-link w-nav-link">Отзывы</a>
                 </li>
                 <li class="header-nav-list-item">
-                    <a href="#email" class="header-nav-link w-nav-link">Контакты</a>
+                    <a href="/#email" class="header-nav-link w-nav-link">Контакты</a>
                 </li>
                 <li class="header-nav-list-item"></li>
             </ul>

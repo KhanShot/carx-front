@@ -27,6 +27,11 @@ Route::post('/form/change-number', [\App\Http\Controllers\FormController::class,
 Route::get('/form/verify', [\App\Http\Controllers\FormController::class, 'verify'])->name('form.verify');
 Route::post('/form/phone/verify', [\App\Http\Controllers\FormController::class, 'phoneVerify'])->name('form.phone.verify');
 
+
+Route::view('privacy-policy', 'pages.confidence')->name('policy');
+Route::view('offer', 'pages.offer')->name('offer');
+Route::view('privacy-policy', 'pages.confidence')->name('policy');
+
 Route::get('/test-event', function (){
     $user = \App\Models\User::query()->find(4);
     $row['test'] = '1';
