@@ -20,6 +20,7 @@
     }
 </style>
 @section('content')
+    {{ print_r($errors) }}
     <section class="main-section">
         <div class="w-layout-blockcontainer container-default w-container">
             <div data-w-id="62ced0c3-c9fd-061c-0030-ba2c6aea3963" style="opacity:1" class="card image-right-inside form_block">

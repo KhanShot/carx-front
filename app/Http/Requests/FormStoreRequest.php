@@ -39,8 +39,8 @@ class FormStoreRequest extends FormRequest
             'in_kz' => 'required|string',
             'crashed' => 'required|string',
             'right_hand' => 'required|string',
-            'vin' => 'string',
-            'comment' => 'string',
+//            'vin' => 'string',
+//            'comment' => 'string',
 //            'images' => 'required',
         ];
     }
