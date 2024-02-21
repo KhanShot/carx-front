@@ -181,7 +181,7 @@
                                 <div>Отправить анкету</div><img src="images/primary-button-icon-right-dashflow-webflow-template.svg" loading="eager" alt="" class="link-icon arrow-right">
                             </div>
                         </button>
-                        <p class="paragraph-4 privicy">Нажимая на кнопку, вы соглашаетесь c <a href="privacy-policy.html" target="_blank" class="link-3">политикой конфиденциальности</a> и <a href="offer.html" target="_blank" class="link-2">офертой</a>
+                        <p class="paragraph-4 privicy">Нажимая на кнопку, вы соглашаетесь c <a href="privacy-policy" target="_blank" class="link-3">политикой конфиденциальности</a> и <a href="offer" target="_blank" class="link-2">офертой</a>
                         </p>
                     </div>
                 </form>
