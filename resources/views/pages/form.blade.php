@@ -257,7 +257,9 @@
             });
         }
     };
-
+    const input = document.querySelector('#phone-mask');
+    input.selectionStart = input.selectionEnd = input.value.length;
+    input.focus();
     function file() {
         let fileInput = document.getElementById('images-dropped');
         let fileList = new DataTransfer();
