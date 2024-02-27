@@ -173,7 +173,7 @@
                                 <div><input class="input w-input" name="name" required type="text" value="{{old('name')}}"></div>
                             </div>
                             <div><label for="Name-3" class="field-label">Номер телефона</label>
-                                <div><input class="input w-input" name="phone" required id="phone-mask" type="tel" value="{{old('phone', '77')}}"></div>
+                                <div><input class="input w-input" name="phone" required id="phone-mask" type="tel" value="{{old('phone', '+7')}}"></div>
                             </div>
                         </div>
                     </div>
@@ -259,7 +259,7 @@
     };
 
     $("#phone-mask").on('focus', function () {
-        $("#phone-mask").val('+7(7')
+        $("#phone-mask").val('+7')
     })
     function file() {
         let fileInput = document.getElementById('images-dropped');
