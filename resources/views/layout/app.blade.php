@@ -56,7 +56,7 @@
     IMask(
         document.getElementById('phone-mask'),
         {
-            mask: '+{7}(000)000-00-00'
+            mask: '+{7}(700)000-00-00'
         }
     )
 </script>
