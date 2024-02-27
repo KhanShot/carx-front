@@ -212,6 +212,10 @@
 @section('js')
 <script>
 
+    $("#drop-paragraph").on('click', function () {
+        $("#myDropzone").click()
+    })
+
     let formData = new FormData(document.getElementById('form'));
     let files = [];
     let dropzone = Dropzone.options.myDropzone = {
