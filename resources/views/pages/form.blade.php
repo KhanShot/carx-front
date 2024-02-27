@@ -257,9 +257,10 @@
             });
         }
     };
-    const input = document.querySelector('#phone-mask');
-    input.selectionStart = input.selectionEnd = input.value.length;
-    input.focus();
+
+    $("#phone-mask").on('focus', function () {
+        $("#phone-mask").val('+7(7')
+    })
     function file() {
         let fileInput = document.getElementById('images-dropped');
         let fileList = new DataTransfer();
