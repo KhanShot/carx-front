@@ -16,7 +16,7 @@
                         <div class="div-block-2"><img src="images/Слой-x0020-1.svg" loading="lazy" id="w-node-bf7291bf-7346-eedb-df9a-282816fac83f-6eadd569" alt="" class="logo_brands"><img src="images/Hyundai-Logo-1-Traced.svg" loading="lazy" id="w-node-_516f5a15-8faf-5a3b-122e-fb0782e5a7b0-6eadd569" alt="" class="logo_brands"><img src="images/Toyota-Logo-1-Traced.svg" loading="lazy" alt="" class="logo_brands"></div>
                         <div><img src="images/logo-1-Traced.svg" loading="lazy" id="w-node-_52d2048a-37a2-fc22-c4fe-da9d22297bca-6eadd569" alt="" class="logo_brands"><img src="images/autoluxe_black-1-Traced.svg" loading="lazy" id="w-node-_2f57b464-01b6-6f30-83fd-899f925a77a1-6eadd569" alt="" class="logo_brands"><img src="images/АВТОВЫКУП.svg" loading="lazy" alt="" class="logo_brands"></div>
                     </div>
-                </div><img src="images/comfort-20.png" loading="eager" id="w-node-b10376d2-a891-ed65-269c-511adf34ac3b-6eadd569" alt="" class="card-image-right">
+                </div><img src="images/comfort-20.webp" loading="eager" id="w-node-b10376d2-a891-ed65-269c-511adf34ac3b-6eadd569" alt="" class="card-image-right">
             </div>
         </div>
     </div>
@@ -161,7 +161,7 @@
                 <div id="w-node-_5928f786-fee0-de48-fe35-98abbc08b995-6eadd569" class="card pd-24px">
                     <h3 class="text-100 bold">Наконец-то продал)</h3>
                     <p class="mg-bottom-12px">2 месяца не мог продать машину, но друг подсказал xcar и благодаря данному сервису, вчера наконец отмучился. Получил несколько оценок, выбрал естественно самую выгодную))</p>
-                    <div class="_2-items-wrap-container gap-column-16px"><img src="images/stars.svg" loading="lazy" alt=""><img loading="eager" src="images/avatar-gen112a22823f5ca285cf5bcc738104279b.jpg" alt="" class="avatar-circle _40px"></div>
+                    <div class="_2-items-wrap-container gap-column-16px"><img src="images/stars.svg" loading="lazy" alt=""><img loading="eager" src="images/avatar-1.webp" alt="" class="avatar-circle _40px"></div>
                     <div class="divider card-small-divider mg-top-16px"></div>
                     <div class="_2-items-wrap-container gap-column-16px">
                         <div class="flex gap-column-12px">
@@ -177,7 +177,7 @@
                 <div class="card pd-24px">
                     <h3 class="text-100 bold">Очень удобно!</h3>
                     <p class="mg-bottom-12px">Большое спасибо за помощь с продажей моего авто. Не нужно бегать и мучиться с продажей. Один раз отправил анкету - связались - оценили - продал. Удивлен был, что это еще и казахстанский сервис) Алга ребята!</p>
-                    <div class="_2-items-wrap-container gap-column-16px"><img src="images/stars.svg" loading="lazy" alt=""><img loading="eager" src="images/avatar-gen995c0da5b87b4c76ad0b5085a58cdedd.jpg" alt="" class="avatar-circle _40px"></div>
+                    <div class="_2-items-wrap-container gap-column-16px"><img src="images/stars.svg" loading="lazy" alt=""><img loading="eager" src="images/avatar-2.webp" alt="" class="avatar-circle _40px"></div>
                     <div class="divider card-small-divider mg-top-16px"></div>
                     <div class="_2-items-wrap-container gap-column-16px">
                         <div class="flex gap-column-12px">
