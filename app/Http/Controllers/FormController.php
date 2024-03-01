@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\FormStoreEvent;
 use App\Http\Requests\FormStoreRequest;
 use App\Http\Services\MobizonService;
+use App\Models\Campaign;
 use App\Models\Form;
 use App\Models\FormImage;
 use App\Models\SmsCode;
 use App\Models\User;
+use App\Notifications\FormCreatedNotification;
+use App\Services\CampaignFormService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
@@ -119,18 +125,56 @@ class FormController extends Controller
             return redirect()->back()->with('error', 'Неправильный код подтверждение.');
 
         $form = Form::query()->where('user_id', $user->id)
+            ->with(['user','images'])
             ->where('verified', 0)
             ->orderBy('created_at', 'DESC')->first();
         $codes->verified = 1;
         $codes->save();
         $user->phone_verified_at = now();
         $user->save();
+        $images = $form->images;
+        $pdf = Pdf::loadView('pdf.form_images', compact('images') );
 
+
+        $path = "/assets/pdf/";
+        $fileName = $form->id. '_'. rand(10000, 100000000);
+
+        $filePath = $path.''. $fileName .'.pdf';
+        $content =  $pdf->download()->getOriginalContent();
+        Storage::put('public'.$filePath, $content);
+
+        $form['file_path'] = $filePath;
 
         $form->verified = 1;
         $form->save();
+        $campaigns = Campaign::query();
 
-        //TODO sent event
+        if ($form->arrested)
+            $campaigns->where('arrested', $form->arrested);
+        if ($form->pledged)
+            $campaigns->where('pledged', $form->pledged);
+        if ($form->crashed)
+            $campaigns->where('crashed', $form->crashed);
+        if ($form->right_hand)
+            $campaigns->where('right_hand', $form->right_hand);
+        if ($form->in_kz)
+            $campaigns->where('in_kz', $form->in_kz);
+
+        $campaigns = $campaigns->get();
+        foreach ($campaigns as $campaign){
+            broadcast(new FormStoreEvent($form, $campaign->user_id))->toOthers();
+            if (is_null($campaign->telegram_user_id)){
+                $this->set_telegram_user_id($campaign);
+            }
+            $campaign->notify(new FormCreatedNotification($form));
+        }
         return redirect()->back()->with('success', 'правильный код подтверждение.');
+    }
+
+    private function set_telegram_user_id(Campaign $campaign)
+    {
+        $service = new CampaignFormService;
+        $telegram_id = $service->get_telegram_id_by_username($campaign->telegram);
+        $campaign->update(['telegram_user_id' => $telegram_id]);
     }
 }

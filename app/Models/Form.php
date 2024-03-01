@@ -12,4 +12,14 @@ class Form extends Model
         'user_id', 'mark', 'model', 'year', 'mileage', 'capacity', 'engine_type','transmission_type',
         'drive_unit', 'color', 'arrested', 'pledged', 'in_kz', 'crashed', 'right_hand', 'vin', 'comment','verified'
     ];
+
+    public function images()
+    {
+        return $this->hasMany(FormImage::class, 'form_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

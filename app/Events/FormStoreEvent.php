@@ -7,43 +7,48 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class FormCreatedEvent implements ShouldBroadcastNow
+class FormStoreEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    private $form;
+    private $userId;
 
     /**
      * Create a new event instance.
      */
-    public $user, $row;
-    public function __construct($row, $user)
+    public function __construct($form, $userId)
     {
-        $this->user = $user;
-        $this->row = $row;
+        //
+        $this->form = $form;
+        $this->userId = $userId;
     }
-    public function broadcastWith()
-    {
-        return [
-            'row' => $this->row,
-            'user' => $this->user,
-            'test' => true,
-        ];
-    }
+
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return
+     * @return array<int, \Illuminate\Broadcasting\Channel>
      */
-    public function broadcastOn()
+    public function broadcastOn(): array
     {
-        return new Channel('form-created.' . 1);
+        return [
+            new Channel('form-store.' . $this->userId),
+            new Channel('form-store.' . 1), //send also to admin
+        ];
     }
+
     public function broadcastAs()
     {
-        return 'event-form_created';
+        return 'form-store_event';
+    }
+
+    public function broadcastWith()
+    {
+        return [
+            'form' => $this->form
+        ];
     }
 }
-

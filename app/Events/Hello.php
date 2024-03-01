@@ -21,18 +21,20 @@ class Hello implements ShouldBroadcast
     {
         //
     }
-    public function broadcastWith()
-    {
-        //echo"broadcastWith";
-        return  ['welcome'=>'welcome to the club'];
-    }
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return
-     */
     public function broadcastOn()
     {
-        return ['public'];
+        return new Channel('my-channel');
+    }
+
+    public function broadcastAs()
+    {
+        return 'my-event';
+    }
+
+    public function broadcastWith()
+    {
+        return [
+            'sex' => 'here'. rand(10000, 1000000000)
+        ];
     }
 }

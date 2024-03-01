@@ -105,8 +105,8 @@
                                     <label for="field-15" class="field-label">Состоит в залоге?</label>
                                     <select id="field-15" name="pledged" required="" class="dropdown-toggle faq w-node-_89733057-db7c-b257-ce88-5eb2d650291c-af954baa w-select">
                                         <option value=""></option>
-                                        <option value="1">Нет</option>
-                                        <option value="0">Да</option>
+                                        <option value="0">Нет</option>
+                                        <option value="1">Да</option>
                                     </select></div>
                                 <div>
                                     <label for="field-14" class="field-label">Растаможен в РК?</label>

@@ -32,18 +32,4 @@ Route::view('privacy-policy', 'pages.confidence')->name('policy');
 Route::view('offer', 'pages.offer')->name('offer');
 Route::view('privacy-policy', 'pages.confidence')->name('policy');
 
-Route::get('/test-event', function (){
-    $user = \App\Models\User::query()->find(4);
-    $row['test'] = '1';
-    $row['test2'] = '2';
-    $row['test3'] = '3';
-    $row['test4'] = '34563';
-    broadcast(new \App\Events\FormCreatedEvent($row, $user));
-    return 'succeed';
-});
-
-Route::get('test', function (){
-    event(new \App\Events\Hello());
-    return 'event sent';
-
-});
+Route::get('/test-notification', [\App\Http\Controllers\TelegramNotificationController::class, 'test']);
