@@ -143,11 +143,11 @@ class FormController extends Controller
         $content =  $pdf->download()->getOriginalContent();
         Storage::put('public'.$filePath, $content);
 
-        $form['file_path'] = $filePath;
 
         $form->verified = 1;
         $form->save();
         $campaigns = Campaign::query();
+        $form['file_path'] = $filePath;
 
         if ($form->arrested)
             $campaigns->where('arrested', $form->arrested);
