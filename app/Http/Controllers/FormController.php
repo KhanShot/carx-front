@@ -160,7 +160,7 @@ class FormController extends Controller
         if ($form->in_kz)
             $campaigns->where('in_kz', $form->in_kz);
 
-        dd($form);
+        dd(count($form->images));
         $campaigns = $campaigns->get();
         foreach ($campaigns as $campaign){
             broadcast(new FormStoreEvent($form, $campaign->user_id))->toOthers();
