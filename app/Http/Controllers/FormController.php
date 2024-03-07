@@ -168,7 +168,6 @@ class FormController extends Controller
             }
             $campaign->notify(new FormCreatedNotification($form));
         }
-        dd(count($form->images) == 0);
         return redirect()->back()->with('success', 'правильный код подтверждение.');
     }
 
