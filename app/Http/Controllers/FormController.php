@@ -137,7 +137,7 @@ class FormController extends Controller
 
 
         $path = "/assets/pdf/";
-        $fileName = $form->id. '_'. $form->mark . ' ' .$form->model;
+        $fileName = $form->id. '_'. $form->mark . '_' .$form->model;
 
         $filePath = $path.''. $fileName .'.pdf';
         $content =  $pdf->download()->getOriginalContent();
