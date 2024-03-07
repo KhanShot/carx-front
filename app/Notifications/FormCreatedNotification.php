@@ -45,7 +45,7 @@ class FormCreatedNotification extends Notification
         $crashed = $form->crashed ? "Аварийное" : "На ходу";
         $right_hand = $form->right_hand ? 'Правый' : 'Левый';
 
-        if (count($form->images) < 1){
+        if (count($form->images) == 0){
             $message = TelegramFile::create()
                 ->to($notifiable->telegram_user_id)
 //            ->file('https://xcar.kz/storage/assets/forms/9xBc1hxhk0yGjA4sPyco61keU2VYNijSajV98NIY.png' , 'photo')
