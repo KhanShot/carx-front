@@ -44,29 +44,48 @@ class FormCreatedNotification extends Notification
         $in_kz = $form->in_kz ? 'Да' : 'Нет';
         $crashed = $form->crashed ? "Аварийное" : "На ходу";
         $right_hand = $form->right_hand ? 'Правый' : 'Левый';
-        $message = TelegramFile::create()
 
-            ->to($notifiable->telegram_user_id)
+        if (count($form->images) < 1){
+            $message = TelegramFile::create()
+                ->to($notifiable->telegram_user_id)
 //            ->file('https://xcar.kz/storage/assets/forms/9xBc1hxhk0yGjA4sPyco61keU2VYNijSajV98NIY.png' , 'photo')
-            ->document('https://xcar.kz/storage' . $form->file_path , $form->mark . ' ' .$form->model .'_.pdf')
-            ->content($form->mark . ' ' .$form->model . ' 🚙'
-                .PHP_EOL . $form->year . ' год' .PHP_EOL.'Пробег (км): '. $form->mileage
-                .PHP_EOL . 'АКПП: ' .$form->transmission_type
-                .PHP_EOL . 'Цвет: ' . $form->color
-                .PHP_EOL . 'Привод: ' . $form->drive_unit
-                .PHP_EOL . 'Тип двигателя: ' . $form->engine_type
-                .PHP_EOL . 'Объем двигателя (л): ' . $form->capacity
-                .PHP_EOL . 'Состоит в аресте?: ' . $arrested
-                .PHP_EOL . 'Состоит в залоге?:  ' . $pledged
-                .PHP_EOL . 'Растаможен в РК?: ' . $in_kz
-                .PHP_EOL . 'Состояние: ' . $crashed
-                .PHP_EOL . 'Руль: ' . $right_hand
-                .PHP_EOL .$form->comment
-                .PHP_EOL . PHP_EOL. PHP_EOL. 'Имя: ' .$form->user->name
-                .PHP_EOL. 'Имя: ' .$form->user->phone
-
-                )
-            ;
+                ->document('https://xcar.kz/storage' . $form->file_path , $form->mark . ' ' .$form->model .'_.pdf')
+                ->content($form->mark . ' ' .$form->model . ' 🚙'
+                    .PHP_EOL . $form->year . ' год' .PHP_EOL.'Пробег (км): '. $form->mileage
+                    .PHP_EOL . 'АКПП: ' .$form->transmission_type
+                    .PHP_EOL . 'Цвет: ' . $form->color
+                    .PHP_EOL . 'Привод: ' . $form->drive_unit
+                    .PHP_EOL . 'Тип двигателя: ' . $form->engine_type
+                    .PHP_EOL . 'Объем двигателя (л): ' . $form->capacity
+                    .PHP_EOL . 'Состоит в аресте?: ' . $arrested
+                    .PHP_EOL . 'Состоит в залоге?:  ' . $pledged
+                    .PHP_EOL . 'Растаможен в РК?: ' . $in_kz
+                    .PHP_EOL . 'Состояние: ' . $crashed
+                    .PHP_EOL . 'Руль: ' . $right_hand
+                    .PHP_EOL .$form->comment
+                    .PHP_EOL . PHP_EOL. PHP_EOL. 'Имя: ' .$form->user->name
+                    .PHP_EOL. 'Имя: ' .$form->user->phone);
+        }else{
+            $message = TelegramMessage::create()
+                ->to($notifiable->telegram_user_id)
+//            ->file('https://xcar.kz/storage/assets/forms/9xBc1hxhk0yGjA4sPyco61keU2VYNijSajV98NIY.png' , 'photo')
+//                ->document('https://xcar.kz/storage' . $form->file_path , $form->mark . ' ' .$form->model .'_.pdf')
+                ->content($form->mark . ' ' .$form->model . ' 🚙'
+                    .PHP_EOL . $form->year . ' год' .PHP_EOL.'Пробег (км): '. $form->mileage
+                    .PHP_EOL . 'АКПП: ' .$form->transmission_type
+                    .PHP_EOL . 'Цвет: ' . $form->color
+                    .PHP_EOL . 'Привод: ' . $form->drive_unit
+                    .PHP_EOL . 'Тип двигателя: ' . $form->engine_type
+                    .PHP_EOL . 'Объем двигателя (л): ' . $form->capacity
+                    .PHP_EOL . 'Состоит в аресте?: ' . $arrested
+                    .PHP_EOL . 'Состоит в залоге?:  ' . $pledged
+                    .PHP_EOL . 'Растаможен в РК?: ' . $in_kz
+                    .PHP_EOL . 'Состояние: ' . $crashed
+                    .PHP_EOL . 'Руль: ' . $right_hand
+                    .PHP_EOL .$form->comment
+                    .PHP_EOL . PHP_EOL. PHP_EOL. 'Имя: ' .$form->user->name
+                    .PHP_EOL. 'Имя: ' .$form->user->phone);
+        }
 
 //        foreach ($form->images as $image){
 //            $message->file('https://xcar.kz/storage'.$image->url, 'photo');
