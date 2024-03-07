@@ -129,9 +129,9 @@ class FormController extends Controller
             ->where('verified', 0)
             ->orderBy('created_at', 'DESC')->first();
         $codes->verified = 1;
-        $codes->save();
+//        $codes->save();
         $user->phone_verified_at = now();
-        $user->save();
+//        $user->save();
         $images = $form->images;
         $pdf = Pdf::loadView('pdf.form_images', compact('images') );
 
@@ -145,7 +145,7 @@ class FormController extends Controller
 
 
         $form->verified = 1;
-        $form->save();
+//        $form->save();
         $campaigns = Campaign::query();
         $form['file_path'] = $filePath;
 
@@ -160,6 +160,7 @@ class FormController extends Controller
         if ($form->in_kz)
             $campaigns->where('in_kz', $form->in_kz);
 
+        dd($form);
         $campaigns = $campaigns->get();
         foreach ($campaigns as $campaign){
             broadcast(new FormStoreEvent($form, $campaign->user_id))->toOthers();
