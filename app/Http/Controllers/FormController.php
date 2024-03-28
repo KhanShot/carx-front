@@ -51,6 +51,7 @@ class FormController extends Controller
             'vin' => $request->get('vin'),
             'comment' => $request->get('comment'),
             'verified' => 0,
+            'city' => $request->get('city'),
         ];
 
         $form = Form::query()->create($data);

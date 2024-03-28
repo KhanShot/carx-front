@@ -168,12 +168,20 @@
 
                     <h2 class="text-500 bold second_header">Ваши контакты</h2>
                     <div class="w-form">
-                        <div class="w-layout-grid contact_grid">
+                        <div class="w-layout-grid offer_grid">
                             <div><label for="Name-3" class="field-label">Имя</label>
                                 <div><input class="input w-input" name="name" required type="text" value="{{old('name')}}"></div>
                             </div>
                             <div><label for="Name-3" class="field-label">Номер телефона</label>
                                 <div><input class="input w-input" name="phone" required id="phone-mask" type="tel" value="{{old('phone', '+7')}}"></div>
+                            </div>
+                            <div>
+                                <label for="field-14" class="field-label">Город</label>
+                                <select id="field-14" name="city" required="" class="dropdown-toggle faq w-node-_5310e603-c8db-2a4d-8a2c-7cb5cb93a3cb-af954baa w-select">
+                                    <option value=""></option>
+                                    <option value="Алматы">Алматы</option>
+                                    <option value="Астана">Астана</option>
+                                </select>
                             </div>
                         </div>
                     </div>
