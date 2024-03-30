@@ -52,10 +52,11 @@ class FormCreatedNotification extends Notification
                 ->document('https://xcar.kz/storage' . $form->file_path , $form->mark . ' ' .$form->model .'_.pdf')
                 ->content($form->mark . ' ' .$form->model . ' 🚙'
                     .PHP_EOL . $form->year . ' год' .PHP_EOL.'Пробег (км): '. $form->mileage
+                    .PHP_EOL . 'Город: ' .$form->city ?? '-'
                     .PHP_EOL . 'АКПП: ' .$form->transmission_type
                     .PHP_EOL . 'Цвет: ' . $form->color
                     .PHP_EOL . 'Привод: ' . $form->drive_unit
-                    .PHP_EOL . 'Тип двигателя: ' . $form->engine_type
+                    .PHP_EOL . 'Вид топлива: ' . $form->engine_type
                     .PHP_EOL . 'Объем двигателя (л): ' . $form->capacity
                     .PHP_EOL . 'Состоит в аресте?: ' . $arrested
                     .PHP_EOL . 'Состоит в залоге?:  ' . $pledged
@@ -72,10 +73,11 @@ class FormCreatedNotification extends Notification
 //                ->document('https://xcar.kz/storage' . $form->file_path , $form->mark . ' ' .$form->model .'_.pdf')
                 ->content($form->mark . ' ' .$form->model . ' 🚙'
                     .PHP_EOL . $form->year . ' год' .PHP_EOL.'Пробег (км): '. $form->mileage
+                    .PHP_EOL . 'Город: ' .$form->city ?? '-'
                     .PHP_EOL . 'АКПП: ' .$form->transmission_type
                     .PHP_EOL . 'Цвет: ' . $form->color
                     .PHP_EOL . 'Привод: ' . $form->drive_unit
-                    .PHP_EOL . 'Тип двигателя: ' . $form->engine_type
+                    .PHP_EOL . 'Вид топлива: ' . $form->engine_type
                     .PHP_EOL . 'Объем двигателя (л): ' . $form->capacity
                     .PHP_EOL . 'Состоит в аресте?: ' . $arrested
                     .PHP_EOL . 'Состоит в залоге?:  ' . $pledged

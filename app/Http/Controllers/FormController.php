@@ -130,9 +130,9 @@ class FormController extends Controller
             ->where('verified', 0)
             ->orderBy('created_at', 'DESC')->first();
         $codes->verified = 1;
-//        $codes->save();
+        $codes->save();
         $user->phone_verified_at = now();
-//        $user->save();
+        $user->save();
         $images = $form->images;
         $pdf = Pdf::loadView('pdf.form_images', compact('images') );
 
@@ -146,7 +146,7 @@ class FormController extends Controller
 
 
         $form->verified = 1;
-//        $form->save();
+        $form->save();
         $campaigns = Campaign::query();
         $form['file_path'] = $filePath;
 
@@ -160,13 +160,18 @@ class FormController extends Controller
             $campaigns->where('right_hand', $form->right_hand);
         if ($form->in_kz)
             $campaigns->where('in_kz', $form->in_kz);
+        if ($form->city)
+            $campaigns->where('city', $form->city);
 
         $campaigns = $campaigns->get();
+        //TODO add transactions
         foreach ($campaigns as $campaign){
             broadcast(new FormStoreEvent($form, $campaign->user_id))->toOthers();
-            if (is_null($campaign->telegram_user_id)){
-                $this->set_telegram_user_id($campaign);
-            }
+            //TODO обсудить!
+//            if (is_null($campaign->telegram_user_id)){
+//                echo '_____';
+//              $this->set_telegram_user_id($campaign);
+//            }
             $campaign->notify(new FormCreatedNotification($form));
         }
         return redirect()->back()->with('success', 'правильный код подтверждение.');
@@ -176,6 +181,7 @@ class FormController extends Controller
     {
         $service = new CampaignFormService;
         $telegram_id = $service->get_telegram_id_by_username($campaign->telegram);
-        $campaign->update(['telegram_user_id' => $telegram_id]);
+//        $campaign->update(['telegram_user_id' => $telegram_id]);
+        return $telegram_id;
     }
 }

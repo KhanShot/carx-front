@@ -48,12 +48,13 @@
                                     <div><input class="input w-input" name="capacity" step="0.1" type="number" required=""></div>
                                 </div>
                                 <div>
-                                    <label for="field-16" class="field-label">Тип двигателя</label>
+                                    <label for="field-16" class="field-label">Вид топлива</label>
                                         <select id="field-16" name="engine_type" required="" class="dropdown-toggle faq w-select">
                                         <option value=""></option>
                                         <option value="Бензин">Бензин</option>
                                         <option value="Дизель">Дизель</option>
                                         <option value="Электродвигатель">Электродвигатель</option>
+                                        <option value="Газ">Газ</option>
                                     </select>
                                 </div>
                                 <div>
