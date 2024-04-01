@@ -45,7 +45,7 @@
                                     <div><input class="input w-input" name="mileage" type="number" required=""></div>
                                 </div>
                                 <div><label for="Name-6" class="field-label">Объем двигателя (л)</label>
-                                    <div><input class="input w-input" name="capacity" step="0.1" type="number" required=""></div>
+                                    <div><input class="input w-input" name="capacity" max="12" step="0.1" type="number" required=""></div>
                                 </div>
                                 <div>
                                     <label for="field-16" class="field-label">Вид топлива</label>
