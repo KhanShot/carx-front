@@ -206,9 +206,9 @@
                     <div class="div-block-5"><img src="images/Mail-icon.svg" alt="" class="cta-square-logo">
                         <h3 class="heading-2">У Вас есть вопросы или предложения?</h3>
                         <p class="paragraph-8">Напишите нам на почту, мы обязательно Вам ответим. </p>
-                        <a href="mailto:info@xcar.kz?subject=%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0" class="btn-primary w-inline-block">
+                        <a href="mailto:xcarkz@gmail.com?subject=%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0" class="btn-primary w-inline-block">
                             <div class="flex-horizontal gap-column-4px">
-                                <div>info@xcar.kz</div>
+                                <div>xcarkz@gmail.com</div>
                             </div>
                         </a>
                     </div>

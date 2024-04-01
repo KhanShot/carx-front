@@ -155,8 +155,8 @@
                 </div>
                 <div class="footer-bottom-section">
                     <div data-w-id="bdf375e4-f372-ad95-cceb-78bd47bb7454" class="text-block">Copyright © xcar.kz | 2024</div>
-                    <a href="mailto:info@xcar.kz?subject=%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0" class="link-block w-inline-block">
-                        <div data-w-id="061f2022-7ddb-a5c0-a79a-7dd22beebe25" class="text-block link-email">info@xcar.kz</div>
+                    <a href="mailto:xcarkz@gmail.com?subject=%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0" class="link-block w-inline-block">
+                        <div data-w-id="061f2022-7ddb-a5c0-a79a-7dd22beebe25" class="text-block link-email">xcarkz@gmail.com</div>
                     </a>
                     <div data-w-id="bdf375e4-f372-ad95-cceb-78bd47bb745b" class="social-links-container">
                         <a href="https://www.facebook.com/" target="_blank" class="social-circle-link"></a>

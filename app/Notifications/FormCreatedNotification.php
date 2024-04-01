@@ -43,7 +43,7 @@ class FormCreatedNotification extends Notification
         $pledged = $form->pledged ? 'Да' : 'Нет';
         $in_kz = $form->in_kz ? 'Да' : 'Нет';
         $crashed = $form->crashed ? "Аварийное" : "На ходу";
-        $right_hand = $form->right_hand ? 'Правый' : 'Левый';
+        $right_hand = $form->right_hand ? 'Справа' : 'Слева';
 
         if (count($form->images) != 0){
             $message = TelegramFile::create()
@@ -52,7 +52,7 @@ class FormCreatedNotification extends Notification
                 ->document('https://xcar.kz/storage' . $form->file_path , $form->mark . ' ' .$form->model .'_.pdf')
                 ->content($form->mark . ' ' .$form->model . ' 🚙'
                     .PHP_EOL . $form->year . ' год' .PHP_EOL.'Пробег (км): '. $form->mileage
-                    .PHP_EOL . 'Город: ' .$form->city ?? '-'
+                    .PHP_EOL . 'Город: ' .$form->city
                     .PHP_EOL . 'АКПП: ' .$form->transmission_type
                     .PHP_EOL . 'Цвет: ' . $form->color
                     .PHP_EOL . 'Привод: ' . $form->drive_unit
@@ -73,7 +73,7 @@ class FormCreatedNotification extends Notification
 //                ->document('https://xcar.kz/storage' . $form->file_path , $form->mark . ' ' .$form->model .'_.pdf')
                 ->content($form->mark . ' ' .$form->model . ' 🚙'
                     .PHP_EOL . $form->year . ' год' .PHP_EOL.'Пробег (км): '. $form->mileage
-                    .PHP_EOL . 'Город: ' .$form->city ?? '-'
+                    .PHP_EOL . 'Город: ' .$form->city
                     .PHP_EOL . 'АКПП: ' .$form->transmission_type
                     .PHP_EOL . 'Цвет: ' . $form->color
                     .PHP_EOL . 'Привод: ' . $form->drive_unit
