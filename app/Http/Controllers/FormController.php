@@ -158,7 +158,7 @@ class FormController extends Controller
             $campaigns->where('crashed', $form->crashed);
         if ($form->right_hand)
             $campaigns->where('right_hand', $form->right_hand);
-        if ($form->in_kz)
+        if (!$form->in_kz)
             $campaigns->where('in_kz', $form->in_kz);
         if ($form->city)
             $campaigns->where('city', $form->city);
