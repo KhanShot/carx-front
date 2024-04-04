@@ -162,12 +162,12 @@ class FormController extends Controller
             $campaigns->where('in_kz', $form->in_kz);
         if ($form->city)
             $campaigns->where('city', $form->city);
-
+        if ($form->year)
+            $campaigns->where('min_year', '<=',$form->year);
         $campaigns = $campaigns->get();
         //TODO add transactions
         foreach ($campaigns as $campaign){
             broadcast(new FormStoreEvent($form, $campaign->user_id))->toOthers();
-            //TODO обсудить!
 //            if (is_null($campaign->telegram_user_id)){
 //                echo '_____';
 //              $this->set_telegram_user_id($campaign);
