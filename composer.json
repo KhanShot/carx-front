@@ -14,6 +14,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "mobizon/mobizon-php": "^2.0",
+        "opcodesio/log-viewer": "^3.6",
         "pusher/pusher-php-server": "^7.2",
         "react/promise": "^2.3"
     },
